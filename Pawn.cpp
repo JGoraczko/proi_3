@@ -15,7 +15,7 @@ Pawn::Pawn(char n_kolor, array<int,2> n_pozycja): Piece(n_kolor, n_pozycja){
 vector<Move> Pawn::moves(Board p){
     vector<Move> moves;
     array<int, 2> position = this->getPosition();
-    if(this->getColour() == 'c')
+    if(this->getColour() == 'b')
     {
         position[0] += 1;
         if(p.doesItFit(position) && p.whoStands(position) == 0)
@@ -27,7 +27,7 @@ vector<Move> Pawn::moves(Board p){
         if(p.doesItFit(position) && p.whoStands(position) != 0 && p.whoStands(position)->getColour() != this->getColour())
             moves.push_back(Move(this, position));
     }
-    else if(this->getColour() == 'b')
+    else if(this->getColour() == 'w')
     {
         position = this->getPosition();
         position[0] -= 1;
@@ -42,14 +42,14 @@ vector<Move> Pawn::moves(Board p){
     }
     if(!moved)
     {
-        if(this->getColour() == 'c')
+        if(this->getColour() == 'b')
         {
             position = this->getPosition();
             position[0] += 2;
             if(p.doesItFit(position) && p.whoStands(position) == 0)
                 moves.push_back(Move(this, position));
         }
-        else if(this->getColour() == 'b')
+        else if(this->getColour() == 'w')
         {
             position = this->getPosition();
             position[0] -= 2;
