@@ -4,6 +4,7 @@
 
 #include "Board.h"
 
+
 Board::Board(array<int,2> n_size){
     size = n_size;
 }
@@ -20,3 +21,5 @@ void Board::add(Piece* b){
 bool Board::doesItFit(array<int, 2> x){
     return (x[0] >= 0) && (x[0] < size[0]) && (x[1] >= 0) &&(x[1] < size[1]);
 }
+
+
